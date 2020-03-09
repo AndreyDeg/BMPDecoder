@@ -1,7 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-using System;
 
 public class BMPDecoder
 {
@@ -15,15 +15,15 @@ public class BMPDecoder
     public Texture2D Decode(string path)
     {
         using (var stream = File.Open(path, FileMode.Open))
-            using (var fileReader = new BinaryReader(stream))
-                return Decode(fileReader);
+        using (var fileReader = new BinaryReader(stream))
+            return Decode(fileReader);
     }
 
     public Texture2D Decode(byte[] bytes)
     {
         using (var stream = new MemoryStream(bytes))
-            using (var fileReader = new BinaryReader(stream))
-                return Decode(fileReader);
+        using (var fileReader = new BinaryReader(stream))
+            return Decode(fileReader);
     }
 
     public Texture2D Decode(BinaryReader fileReader)
